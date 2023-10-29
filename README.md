@@ -1,6 +1,6 @@
 # reference_basic
 
-Exercise02
+Exercise02  
   ex01 ラジオに対応したチェックボックス３つ、リスト、テキストをアラートで表示  
   ex02 Zの形のラジオのチェックを順番に移動  
   ex03 ex02の自動化  
