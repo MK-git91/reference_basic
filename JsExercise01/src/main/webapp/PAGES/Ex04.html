@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題04</title>
+	<!--ラジオ２つ、テキスト１つ（option2つ）、選択リスト２つ、実行１つ、表示欄１つ
+	実行ボタンを押下した時、ラジオ「１」がチェックされたらテキストを、「２」がチェックされたら選択リストを、
+	それぞれの値を表示欄にひょうじされるようにせよ。-->
+	<script>
+		function func() {
+			
+			let radios = document.getElementsByName('r');
+			for (let i = 0; i < radios.length; i++) {
+				if (radios[i].checked) {
+					if (radios[i].value == "1") {
+						document.getElementById('result').value = document.getElementById('text').value;
+					} else {
+						document.getElementById('result').value = document.getElementById('select').value;
+					}
+					break;
+				}
+			}
+			
+		}
+	</script>
+</head>
+
+<body>
+	
+	<input type="radio" name="r" value="1">1
+	<input type="text" id="text">
+	<br>
+	
+	<input type="radio" name="r" value="2">2
+	<select id="select">
+		<option value="a">a</option>
+		<option value="b">b</option>
+	</select>
+	<br>
+	
+	<input type="submit" value="実行" onclick="func();">
+	
+	<br>
+	<input type="text" id="result">
+	
+	
+</body>
+
+</html>

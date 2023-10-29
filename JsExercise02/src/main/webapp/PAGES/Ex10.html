@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題10</title>
+	<script>
+		function addFunc(){
+			
+			let sel = document.getElementById('select');
+			
+			let checks = document.getElementsByName('c');
+			for (let i = 0; i < checks.length; i++) {
+				if (checks[i].checked) {
+					let option = document.createElement('option');
+					option.value = document.getElementById(checks[i].value).value;
+					option.text = document.getElementById(checks[i].value).value;
+					sel.appendChild(option);
+				}
+			}
+		}
+		
+		function clearFunc(element,Id) {
+			if (element.checked == false) {
+				document.getElementById(Id).value = "";
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<input type="checkbox" name="c" value="1" onchange="clearFunc(this,'1');">
+	<input type="text" id="1">
+	
+	<br>
+	<input type="checkbox" name="c" value="2" onchange="clearFunc(this,'2');">
+	<input type="text" id="2">
+	
+	<br>
+	<input type="checkbox" name="c" value="3" onchange="clearFunc(this,'3');">
+	<input type="text" id="3">
+	
+	<br>
+	<input type="checkbox" name="c" value="4" onchange="clearFunc(this,'4');">
+	<input type="text" id="4">
+	
+	<br>
+	<input type="checkbox" name="c" value="5" onchange="clearFunc(this,'5');">
+	<input type="text" id="5">
+	
+	<br>
+	<input type="submit" value="実行" onclick="addFunc();">
+	
+	<br>
+	<select id="select" size="5">
+	</select>
+</body>
+
+</html>

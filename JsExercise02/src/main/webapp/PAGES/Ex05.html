@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題04</title>
+	
+	<script>
+		function subCategory(category) {
+			let sel2 = document.getElementById('select2');
+			sel2.innerHTML = "";
+			for (let i = 0; i < category.length; i++) {
+				let option = document.createElement('option');
+				option.value = category[i];
+				option.text = category[i];
+				sel2.appendChild(option);
+			}
+
+		}
+
+		function category(elValue) {
+			let vegetables = ["にんじん", "ブロッコリー", "ほうれん草", "トマト", "きゅうり"];
+			let fruits = ["りんご", "バナナ", "オレンジ", "ぶどう", "いちご"];
+			let breads = ["バゲット", "サワードウ", "全粒粉", "ライ麦", "チャバッタ"];
+
+			if (elValue == "野菜") {
+				subCategory(vegetables);
+			} else if (elValue == "果物") {
+				subCategory(fruits);
+			} else {
+				subCategory(breads);
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+	<select id="select1" onchange="category(this.value);">
+		<option value="野菜">野菜</option>
+		<option value="果物">果物</option>
+		<option value="パン">パン</option>
+	</select>
+
+	<select id="select2">
+	</select>
+
+	<input type="submit" value="実行">
+</body>
+
+</html>

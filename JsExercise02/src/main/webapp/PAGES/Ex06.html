@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題06</title>
+	<script>
+		function reLine(elValue) {
+			let checks = document.getElementsByName('c');
+			for (let i = 0; i < checks.length; i++) {
+				if (checks[i].value == elValue) {
+					checks[i].checked = !checks[i].checked;
+				}
+				
+			}
+		}
+		
+		function reRow(elValue) {
+			let checks = document.getElementsByClassName(elValue);
+			for (let i = 0; i < checks.length; i++) {
+				checks[i].checked = !checks[i].checked;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<table border="1">
+		<tr>
+			<td></td>
+			<td><input type="submit" value="1" onclick="reRow('a');"></td>
+			<td><input type="submit" value="2" onclick="reRow('b');"></td>
+			<td><input type="submit" value="3" onclick="reRow('c');"></td>
+			<td><input type="submit" value="4" onclick="reRow('d');"></td>
+			<td><input type="submit" value="5" onclick="reRow('e');"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="1" onclick="reLine(this.value)"></td>
+			<td><input type="checkbox" name="c" class="a" value="1"></td>
+			<td><input type="checkbox" name="c" class="b" value="1"></td>
+			<td><input type="checkbox" name="c" class="c" value="1"></td>
+			<td><input type="checkbox" name="c" class="d" value="1"></td>
+			<td><input type="checkbox" name="c" class="e" value="1"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="2" onclick="reLine(this.value)"></td>
+			<td><input type="checkbox" name="c" class="a"  value="2"></td>
+			<td><input type="checkbox" name="c" class="b" value="2"></td>
+			<td><input type="checkbox" name="c" class="c" value="2"></td>
+			<td><input type="checkbox" name="c" class="d" value="2"></td>
+			<td><input type="checkbox" name="c" class="e" value="2"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="3" onclick="reLine(this.value)"></td>
+			<td><input type="checkbox" name="c" class="a"  value="3"></td>
+			<td><input type="checkbox" name="c" class="b" value="3"></td>
+			<td><input type="checkbox" name="c" class="c" value="3"></td>
+			<td><input type="checkbox" name="c" class="d" value="3"></td>
+			<td><input type="checkbox" name="c" class="e" value="3"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="4" onclick="reLine(this.value)"></td>
+			<td><input type="checkbox" name="c" class="a"  value="4"></td>
+			<td><input type="checkbox" name="c" class="b" value="4"></td>
+			<td><input type="checkbox" name="c" class="c" value="4"></td>
+			<td><input type="checkbox" name="c" class="d" value="4"></td>
+			<td><input type="checkbox" name="c" class="e" value="4"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="5" onclick="reLine(this.value)"></td>
+			<td><input type="checkbox" name="c" class="a"  value="5"></td>
+			<td><input type="checkbox" name="c" class="b" value="5"></td>
+			<td><input type="checkbox" name="c" class="c" value="5"></td>
+			<td><input type="checkbox" name="c" class="d" value="5"></td>
+			<td><input type="checkbox" name="c" class="e" value="5"></td>
+		</tr>
+	</table>
+</body>
+
+</html>

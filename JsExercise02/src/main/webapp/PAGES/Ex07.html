@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Js問題07</title>
+	<script>
+		function func() {
+			let checks = document.getElementsByName('c');
+			for (let i = 0; i < checks.length; i++) {
+				if (checks[i].checked) {
+					checks[i].checked = false;
+					break;
+				}
+				if (checks[i].value == "5") {
+					for (let i = 0; i < checks.length; i++) {
+						checks[i].checked = true;
+					}
+				}
+			}
+
+		}
+	</script>
+
+</head>
+
+<body>
+	<input type="checkbox" name="c" value="1" checked>
+	<input type="checkbox" name="c" value="2" checked>
+	<input type="checkbox" name="c" value="3" checked>
+	<input type="checkbox" name="c" value="4" checked>
+	<input type="checkbox" name="c" value="5" checked>
+
+	<br>
+	<input type="submit" value="実行" onclick="func();">
+</body>
+
+</html>

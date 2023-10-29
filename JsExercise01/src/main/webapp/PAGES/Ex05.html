@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題05</title>
+	<!--ラジオ３つ（１～３）、チェックボックス（４～６）、ボタン（７～９）、表示欄１つ
+	それぞれの値を押下で値が表示欄に表示されるようにせよ
+	※値の表示は１つ毎で良い-->
+	<script>
+		function func(elValue) {
+			document.getElementById('result').value = elValue;
+
+		}
+	</script>
+</head>
+
+<body>
+	<input type="radio" name="r" value="1" onclick="func(this.value);">1
+	<input type="radio" name="r" value="2" onclick="func(this.value);">2
+	<input type="radio" name="r" value="3" onclick="func(this.value);">3
+	<br>
+
+	<input type="checkbox" name="c" value="4" onclick="func(this.value);">4
+	<input type="checkbox" name="c" value="5" onclick="func(this.value);">5
+	<input type="checkbox" name="c" value="6" onclick="func(this.value);">6
+	<br>
+
+	<input type="button" name="btn" value="7" onclick="func(this.value);">
+	<input type="button" name="btn" value="8" onclick="func(this.value);">
+	<input type="button" name="btn" value="9" onclick="func(this.value);">
+
+	<br>
+	<input type="text" id="result">
+
+</body>
+
+</html>

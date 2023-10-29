@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題02</title>
+	<!--ラジオボタンでZの形を作り（上辺・下辺４つずつ、中３つ）、
+	実行ボタン押下で順番にチェックがついていくようにせよ。
+	また最後のボタンにチェックがついたら最初に戻るようにせよ。-->
+	<script>
+		function func() {
+			let radios = document.getElementsByName('r');
+			let index = -1;
+
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    index = i;
+                    break;
+                }
+            }
+            index = (index + 1) % radios.length;
+            radios[index].checked = true;
+            
+		}
+	</script>
+</head>
+
+<body>
+	<input type="radio" name="r" value="1">
+	<input type="radio" name="r" value="2">
+	<input type="radio" name="r" value="3">
+	<input type="radio" name="r" value="4">
+	
+	<br>
+	　　　<input type="radio" name="r" value="5">
+	<br>
+	　　<input type="radio" name="r" value="6">
+	<br>
+	　<input type="radio" name="r" value="7">
+	
+	<br>
+	<input type="radio" name="r" value="8">
+	<input type="radio" name="r" value="9">
+	<input type="radio" name="r" value="10">
+	<input type="radio" name="r" value="11">
+	
+	<br>
+	<input type="submit" value="実行" onclick="func()">
+</body>
+
+</html>

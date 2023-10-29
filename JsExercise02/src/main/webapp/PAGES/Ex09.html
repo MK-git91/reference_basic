@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題09</title>
+	<script>
+		function func(elValue) {
+			let top = document.getElementsByName('topBtn');
+			for (let i = 0; i < top.length; i++) {
+				if (top[i].value == elValue) {
+					top[i].style.visibility = 'visible';
+				} else {
+					top[i].style.visibility = 'hidden';
+				}
+			}
+			
+			let bottom = document.getElementsByName('bottomBtn');
+			for (let i = 0; i < bottom.length; i++) {
+				if (bottom[i].value == elValue) {
+					bottom[i].style.visibility = 'hidden';
+				} else {
+					bottom[i].style.visibility = 'visible';
+				}
+				
+			}
+		}
+		
+		function func2(elValue) {
+			let top = document.getElementsByName('topBtn');
+			for (let i = 0; i < top.length; i++) {
+				if (top[i].value == elValue) {
+					top[i].style.visibility = 'hidden';
+				} else {
+					top[i].style.visibility = 'visible';
+				}
+			}
+			
+			let bottom = document.getElementsByName('bottomBtn');
+			for (let i = 0; i < bottom.length; i++) {
+				if (bottom[i].value == elValue) {
+					bottom[i].style.visibility = 'visible';
+				} else {
+					bottom[i].style.visibility = 'hidden';
+				}
+				
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<table border="1">
+		<tr>
+			<td><input type="submit" name="topBtn" value="1" onclick="func(this.value);"></td>
+			<td><input type="submit" name="topBtn" value="2" onclick="func(this.value);"></td>
+			<td><input type="submit" name="topBtn" value="3" onclick="func(this.value);"></td>
+			<td><input type="submit" name="topBtn" value="4" onclick="func(this.value);"></td>
+			<td><input type="submit" name="topBtn" value="5" onclick="func(this.value);"></td>
+		</tr>
+		<tr>
+			<td><input type="submit" name="bottomBtn" value="1" onclick="func2(this.value);"></td>
+			<td><input type="submit" name="bottomBtn" value="2" onclick="func2(this.value);"></td>
+			<td><input type="submit" name="bottomBtn" value="3" onclick="func2(this.value);"></td>
+			<td><input type="submit" name="bottomBtn" value="4" onclick="func2(this.value);"></td>
+			<td><input type="submit" name="bottomBtn" value="5" onclick="func2(this.value);"></td>
+		</tr>
+	</table>
+
+</body>
+
+</html>

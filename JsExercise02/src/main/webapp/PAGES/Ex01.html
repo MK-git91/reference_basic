@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題01</title>
+	<!--ラジオ３つ、チェックボックス３つ、選択リスト１つ、テキスト１つ、実行ボタン１つ
+	ラジオがチェック、リスト、テキストにそれぞれ対応し、実行ボタン押下でそれぞれの値をアラートで表示せよ
+	チェックはチェックされた値の連結文字にせよ。また初期値としてラジオ１つ目にcheckedを付けよ-->
+	<script>
+		function func() {
+			
+			let checks = document.getElementsByName('c');
+			let radios = document.getElementsByName('r');
+			for (let i = 0; i < radios.length; i++) {
+				if (radios[i].checked) {
+					if (radios[i].value == "1") {
+						let str = "";
+						for (let i = 0; i < checks.length; i++) {
+							if (checks[i].checked) {
+								str += checks[i].value;
+							}
+						}
+						alert(str);
+					} else if (radios[i].value == "2") {
+						alert(document.getElementById('select').value);
+					} else {
+						alert(document.getElementById('result').value);
+					}
+					break;
+				}
+			}
+		}
+		
+		
+	</script>
+</head>
+
+<body>
+	<input type="radio" name="r" value="1" checked>1
+	<input type="checkbox" name="c" value="a">a
+	<input type="checkbox" name="c" value="b">b
+	<input type="checkbox" name="c" value="c">c
+
+
+	<br>
+	<input type="radio" name="r" value="2">2
+	<select id="select">
+		<option value="a">a</option>
+		<option value="b">b</option>
+		<option value="c">c</option>
+	</select>
+
+	<br>
+	<input type="radio" name="r" value="3">3
+	<input type="text" id="result">
+
+	<br>
+	<input type="submit" value="実行" onclick="func();">
+
+</body>
+
+</html>

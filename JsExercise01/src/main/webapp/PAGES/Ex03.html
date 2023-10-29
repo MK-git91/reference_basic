@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js問題03</title>
+	<!--グループ化したラジオ２つ、表示欄１つ、実行ボタン１つ
+	ラジオに「１」と「２」の値を入れ、
+	実行ボタンが押下されたら表示欄にラジオにチェックされた値が表示されるようにせよ。-->
+	<script>
+		function func() {
+			
+			let radios = document.getElementsByName("r");
+			for (let i = 0; i < radios.length; i++) {
+				if (radios[i].checked) {
+					document.getElementById("result").value = radios[i].value;
+					break;
+				}
+			}
+			
+		}
+	</script>
+</head>
+
+<body>
+	<input type="radio" name="r" value="1">1
+	<input type="radio" name="r" value="2">2
+	
+	<br>
+	<input type="submit" value="実行" onclick="func();">
+	
+	<br>
+	<input type="text" id="result">
+	
+</body>
+
+</html>

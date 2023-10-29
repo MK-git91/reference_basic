@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Js問題01</title>
+	<!-- チェックボックス１つ、表示欄１つ、実行ボタン１つ
+    実行ボタン押下で、チェックボックスにチェックがついたら「１」、
+    外れたら「０」が表示欄に表示されるようにせよ。 -->
+	<script>
+		function func() {
+			
+			let result = document.getElementById("result");
+			result.value = 0;
+			if (document.getElementById("checkbox").checked) {
+				result.value = 1;
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+
+	<input type="checkbox" id="checkbox"><br>
+	<input type="submit" value="実行" onclick="func();"><br>
+	<input type="text" id="result">
+
+</body>
+
+</html>
