@@ -1,0 +1,40 @@
+<form action="@{/process-selection}" method="post">
+    <input type="radio" name="selectedTextbox" value="text1" onclick="toggleTextbox('text1')"> Text 1
+    <input type="text" name="text1" id="text1" style="display: none" required><br><br>
+    <input type="radio" name="selectedTextbox" value="text2" onclick="toggleTextbox('text2')"> Text 2
+    <input type="text" name="text2" id="text2" style="display: none" required><br><br>
+    <input type="radio" name="selectedTextbox" value="text3" onclick="toggleTextbox('text3')"> Text 3
+    <input type="text" name="text3" id="text3" style="display: none" required><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<script th:inline="javascript">
+    function toggleTextbox(textboxId) {
+        var selectedTextbox = document.getElementById(textboxId);
+        var allTextboxes = document.querySelectorAll('input[type="text"]');
+        allTextboxes.forEach(function(box) {
+            if (box !== selectedTextbox) {
+                box.style.display = 'none';
+                box.removeAttribute('name');
+            }
+        });
+
+        selectedTextbox.style.display = 'block';
+        selectedTextbox.setAttribute('name', 'selectedTextValue');
+    }
+</script>
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class SelectionController {
+
+    @PostMapping("/process-selection")
+    public String processSelection(@RequestParam(value = "selectedTextValue") String selectedTextValue, Model model) {
+        // 選択されたテキストボックスの値を直接受け取る
+        model.addAttribute("selectedValue", selectedTextValue);
+        return "resultPage"; // 結果を表示するページにリダイレクト
+    }
+}
