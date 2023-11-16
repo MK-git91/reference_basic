@@ -1,0 +1,59 @@
+<form th:object="${yourFormObject}" th:action="@{/your-endpoint}" method="post">
+    <label for="manufacturer">メーカー名:</label>
+    <select id="manufacturer" th:field="*{selectedManufacturer}" onchange="updateProductCodes()">
+        <option th:each="manufacturer : ${manufacturers}" th:value="${manufacturer}" th:text="${manufacturer}"></option>
+    </select>
+
+    <label for="productCode">商品コード:</label>
+    <select id="productCode" th:field="*{selectedProductCode}" onchange="updateProductNames()">
+        <!-- 商品コードのリストはJavaScriptで動的に更新される -->
+    </select>
+
+    <label for="productName">商品名称:</label>
+    <select id="productName" th:field="*{selectedProductName}">
+        <!-- 商品名称のリストはJavaScriptで動的に更新される -->
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var productCodes = /*[[${productCodes}]]*/ [];
+    var productNames = /*[[${productNames}]]*/ [];
+    /*]]>*/
+</script>
+
+<script>
+    function updateProductCodes() {
+        var selectedManufacturer = document.getElementById("manufacturer").value;
+        var productCodeDropdown = document.getElementById("productCode");
+
+        // 商品コードのリストを更新
+        productCodeDropdown.innerHTML = "";
+        for (var i = 0; i < productCodes[selectedManufacturer].length; i++) {
+            var option = document.createElement("option");
+            option.value = productCodes[selectedManufacturer][i];
+            option.text = productCodes[selectedManufacturer][i];
+            productCodeDropdown.add(option);
+        }
+
+        // 商品コードが変更されたので、関連する商品名も更新
+        updateProductNames();
+    }
+
+    function updateProductNames() {
+        var selectedManufacturer = document.getElementById("manufacturer").value;
+        var selectedProductCode = document.getElementById("productCode").value;
+        var productNameDropdown = document.getElementById("productName");
+
+        // 商品名のリストを更新
+        productNameDropdown.innerHTML = "";
+        for (var i = 0; i < productNames[selectedManufacturer][selectedProductCode].length; i++) {
+            var option = document.createElement("option");
+            option.value = productNames[selectedManufacturer][selectedProductCode][i];
+            option.text = productNames[selectedManufacturer][selectedProductCode][i];
+            productNameDropdown.add(option);
+        }
+    }
+</script>
