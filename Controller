@@ -1,0 +1,45 @@
+package com.example.demo.controller;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.example.demo.model.YourFormObject;
+
+@Controller
+public class YourController {
+
+    @GetMapping("/your-endpoint")
+    public String showForm(Model model) {
+        List<String> manufacturers = Arrays.asList("Manufacturer1", "Manufacturer2", "Manufacturer3");
+
+        // サンプルデータ：メーカーごとの商品コードと商品名
+        Map<String, List<String>> productCodes = new HashMap<>();
+        productCodes.put("Manufacturer1", Arrays.asList("Code1A", "Code1B"));
+        productCodes.put("Manufacturer2", Arrays.asList("Code2A", "Code2B"));
+        productCodes.put("Manufacturer3", Arrays.asList("Code3A", "Code3B"));
+
+        Map<String, Map<String, List<String>>> productNames = new HashMap<>();
+        Map<String, List<String>> manufacturer1Names = new HashMap<>();
+        manufacturer1Names.put("Code1A", Arrays.asList("Product1A1", "Product1A2"));
+        manufacturer1Names.put("Code1B", Arrays.asList("Product1B1", "Product1B2"));
+        productNames.put("Manufacturer1", manufacturer1Names);
+
+        // YourFormObjectを作成してモデルに追加
+        YourFormObject yourFormObject = new YourFormObject();
+        model.addAttribute("yourFormObject", yourFormObject);
+
+        // モデルにデータを追加
+        model.addAttribute("manufacturers", manufacturers);
+        model.addAttribute("productCodes", productCodes);
+        model.addAttribute("productNames", productNames);
+
+        // フォームを表示するテンプレート名
+        return "yourFormPage";
+    }
+}
